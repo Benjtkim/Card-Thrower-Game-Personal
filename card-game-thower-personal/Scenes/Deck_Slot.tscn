@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://ul7fqmv7qfte"]
+
+[ext_resource type="Script" uid="uid://bdyan603eaoab" path="res://Scripts/Deck_Slot.gd" id="1_ptuq0"]
+[ext_resource type="Texture2D" uid="uid://bpjal5brppteq" path="res://Assets/inventory-slot.png" id="1_th2ir"]
+
+[node name="Deck_Slot" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(40, 40)
+offset_left = 1.0
+offset_right = 101.0
+offset_bottom = 44.0
+script = ExtResource("1_ptuq0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(6.2499995, 2.749999)
+texture = ExtResource("1_th2ir")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 101.0
+offset_bottom = 43.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Card_Display" type="Sprite2D" parent="CenterContainer/Panel"]

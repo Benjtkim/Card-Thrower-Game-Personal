@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://b86niv7knsssb"]
+
+[ext_resource type="Script" uid="uid://ubu3oqcxd32c" path="res://Scripts/Player.gd" id="1_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://dvtr4afu408mk" path="res://Assets/Magician.png" id="1_xhfnw"]
+[ext_resource type="PackedScene" uid="uid://dxyik34ytqsog" path="res://Scenes/Blank_Card.tscn" id="2_5ixxa"]
+[ext_resource type="PackedScene" uid="uid://c7kt8h8i7yhy5" path="res://Scenes/Knife_Card.tscn" id="3_nn08x"]
+[ext_resource type="Resource" uid="uid://cfvrqu173ju87" path="res://Resources/PlayerDeck.tres" id="4_52ee3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhfnw"]
+size = Vector2(38, 88.5)
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_kpjcp")
+blank_card = ExtResource("2_5ixxa")
+knife_card = ExtResource("3_nn08x")
+deck = ExtResource("4_52ee3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.1920929e-07, 1.9073486e-06)
+scale = Vector2(0.49078342, 0.49078342)
+texture = ExtResource("1_xhfnw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -3.25)
+shape = SubResource("RectangleShape2D_xhfnw")
+
+[node name="FireCooldown" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="FireCooldown" to="." method="_on_fire_cooldown_finish"]

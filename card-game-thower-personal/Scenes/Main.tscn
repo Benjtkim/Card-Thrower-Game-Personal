@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkepthsqtuyaj"]
+
+[ext_resource type="Texture2D" uid="uid://dga3li1pnx2ck" path="res://Assets/Floor.png" id="1_idj7w"]
+[ext_resource type="PackedScene" uid="uid://cko4y6nseqqck" path="res://Scenes/Player_Deck_UI.tscn" id="1_kln2b"]
+[ext_resource type="PackedScene" uid="uid://b86niv7knsssb" path="res://Scenes/Player.tscn" id="2_kln2b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cm0pq"]
+size = Vector2(1151.9375, 83)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(575, 327)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Player_Deck_UI" parent="CanvasLayer" instance=ExtResource("1_kln2b")]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(338, 1199)
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+position = Vector2(237.50003, -580)
+scale = Vector2(2.546, 1.0397437)
+texture = ExtResource("1_idj7w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(238.03125, -580.5)
+shape = SubResource("RectangleShape2D_cm0pq")
+
+[node name="Player" parent="." instance=ExtResource("2_kln2b")]
+position = Vector2(145, 454)
