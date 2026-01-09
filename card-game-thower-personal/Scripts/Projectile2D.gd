@@ -31,3 +31,4 @@ func set_damage(new_damage: float) -> void:
 	
 func set_speed(new_speed: float) -> void:
 	speed = new_speed
+	

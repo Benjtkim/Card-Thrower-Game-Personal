@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Card" load_steps=5 format=3 uid="uid://bwxoqbh1hx8lx"]
+
+[ext_resource type="Script" uid="uid://dkhcp3em20udc" path="res://Scripts/Card.gd" id="1_h1hoc"]
+[ext_resource type="PackedScene" uid="uid://cdai7pg6wedql" path="res://Scenes/Explosion_Card.tscn" id="1_woif1"]
+[ext_resource type="Texture2D" uid="uid://bhbyrj0jq7j6n" path="res://Assets/Explosion_Card_Icon.jpg" id="2_4b1wm"]
+[ext_resource type="Texture2D" uid="uid://831q76aiue8v" path="res://Assets/Explosion_Card_Icon_Bordered.png" id="3_woif1"]
+
+[resource]
+script = ExtResource("1_h1hoc")
+name = "Explosion_Card"
+texture = ExtResource("2_4b1wm")
+textureBordered = ExtResource("3_woif1")
+projectileScene = ExtResource("1_woif1")
+metadata/_custom_type_script = "uid://dkhcp3em20udc"

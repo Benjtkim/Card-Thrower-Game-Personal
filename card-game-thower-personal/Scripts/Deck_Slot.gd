@@ -7,4 +7,7 @@ func update(card: Card):
 		card_visual.visible = false
 	else:
 		card_visual.visible = true
-		card_visual.texture = card.texture
+		if card.isBordered:
+			card_visual.texture = card.textureBordered
+		else:
+			card_visual.texture = card.texture
