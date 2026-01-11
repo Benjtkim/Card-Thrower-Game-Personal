@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://drhnx1xbnj0oi"]
+
+[ext_resource type="Script" uid="uid://c5k4unbx6fk4r" path="res://Scripts/Exploding_Knife.gd" id="1_rpatp"]
+[ext_resource type="PackedScene" uid="uid://c8ew57faeyrsd" path="res://Scenes/Explosion.tscn" id="2_6tcjl"]
+[ext_resource type="Texture2D" uid="uid://c6nbe8gs1hny2" path="res://Assets/Exploding_Knife.png" id="3_dqxag"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ui1as"]
+size = Vector2(52.9375, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfip4"]
+size = Vector2(52.96875, 17)
+
+[node name="Exploding_Knife" type="CharacterBody2D"]
+collision_layer = 64
+collision_mask = 0
+script = ExtResource("1_rpatp")
+explosionScene = ExtResource("2_6tcjl")
+metadata/_custom_type_script = "uid://ccg8h4gqh285y"
+
+[node name="ExplodingKnife" type="Sprite2D" parent="."]
+position = Vector2(56.000004, 0)
+scale = Vector2(0.2258064, 0.22580646)
+texture = ExtResource("3_dqxag")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(55.53125, 0)
+shape = SubResource("RectangleShape2D_ui1as")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(55.515625, 0)
+shape = SubResource("RectangleShape2D_xfip4")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

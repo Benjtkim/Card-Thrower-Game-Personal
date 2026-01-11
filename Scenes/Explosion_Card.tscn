@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdai7pg6wedql"]
+[gd_scene load_steps=6 format=3 uid="uid://cdai7pg6wedql"]
 
 [ext_resource type="Script" uid="uid://dhgpdys5ymtly" path="res://Scripts/Explosion_Card.gd" id="1_r364k"]
 [ext_resource type="Texture2D" uid="uid://d4diq7kcf6vux" path="res://Assets/Explosion_Card.jpg" id="2_er5a4"]
+[ext_resource type="PackedScene" uid="uid://c8ew57faeyrsd" path="res://Scenes/Explosion.tscn" id="2_rypot"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_30sql"]
 size = Vector2(25.875, 26)
@@ -10,12 +11,13 @@ size = Vector2(25.875, 26)
 size = Vector2(26, 26)
 
 [node name="Explosion_Card" type="CharacterBody2D"]
-collision_layer = 8
+collision_layer = 16
 collision_mask = 0
 script = ExtResource("1_r364k")
+explosionParticle = ExtResource("2_rypot")
 metadata/_custom_type_script = "uid://ccg8h4gqh285y"
 
-[node name="Knife" type="Sprite2D" parent="."]
+[node name="ExplosionCard" type="Sprite2D" parent="."]
 position = Vector2(42, -5.684342e-14)
 scale = Vector2(0.040900774, 0.040900774)
 texture = ExtResource("2_er5a4")
@@ -28,7 +30,6 @@ shape = SubResource("RectangleShape2D_30sql")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(42, 0)

@@ -21,6 +21,8 @@ func _on_timer_timeout() -> void:
 	queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name != "Floor":
+		body.queue_free()
 	queue_free()
 	
 func set_lifetime(new_lifetime: float) -> void:

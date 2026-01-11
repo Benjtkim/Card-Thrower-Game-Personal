@@ -1,12 +1,11 @@
-[gd_resource type="Resource" script_class="Deck" load_steps=6 format=3 uid="uid://cfvrqu173ju87"]
+[gd_resource type="Resource" script_class="Deck" load_steps=5 format=3 uid="uid://cfvrqu173ju87"]
 
 [ext_resource type="Script" uid="uid://dkhcp3em20udc" path="res://Scripts/Card.gd" id="1_288ug"]
-[ext_resource type="Resource" uid="uid://dloxxr788q0fu" path="res://Resources/Knife_Card.tres" id="2_wuak2"]
+[ext_resource type="Resource" uid="uid://dloxxr788q0fu" path="res://Resources/Knife_Card.tres" id="2_22pjf"]
 [ext_resource type="Script" uid="uid://85s6snlnhs2j" path="res://Scripts/Deck.gd" id="3_22pjf"]
 [ext_resource type="Resource" uid="uid://bwxoqbh1hx8lx" path="res://Resources/Explosion_Card.tres" id="3_fhfop"]
-[ext_resource type="Resource" uid="uid://cofvojylqqgs6" path="res://Resources/Blank_Card.tres" id="3_wuak2"]
 
 [resource]
 script = ExtResource("3_22pjf")
-deck = Array[ExtResource("1_288ug")]([ExtResource("2_wuak2"), ExtResource("3_fhfop"), ExtResource("3_wuak2"), null, null, null, null, null, null])
+deck = Array[ExtResource("1_288ug")]([ExtResource("3_fhfop"), ExtResource("2_22pjf"), null, null, null, null, null, null, null])
 metadata/_custom_type_script = "uid://85s6snlnhs2j"
