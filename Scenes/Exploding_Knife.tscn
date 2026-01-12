@@ -1,39 +1,37 @@
-[gd_scene load_steps=6 format=3 uid="uid://drhnx1xbnj0oi"]
+[gd_scene load_steps=5 format=3 uid="uid://cdv7ji2p05b77"]
 
-[ext_resource type="Script" uid="uid://c5k4unbx6fk4r" path="res://Scripts/Exploding_Knife.gd" id="1_rpatp"]
-[ext_resource type="PackedScene" uid="uid://c8ew57faeyrsd" path="res://Scenes/Explosion.tscn" id="2_6tcjl"]
-[ext_resource type="Texture2D" uid="uid://c6nbe8gs1hny2" path="res://Assets/Exploding_Knife.png" id="3_dqxag"]
+[ext_resource type="Script" uid="uid://chpyx7wf4y1hm" path="res://Scripts/Exploding_Knife.gd" id="1_sjws6"]
+[ext_resource type="Texture2D" uid="uid://c6nbe8gs1hny2" path="res://Assets/Exploding_Knife.png" id="2_d3me5"]
+[ext_resource type="PackedScene" uid="uid://c8ew57faeyrsd" path="res://Scenes/Explosion.tscn" id="2_rpatp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ui1as"]
-size = Vector2(52.9375, 17)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tv14"]
+size = Vector2(45.46875, 12)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfip4"]
-size = Vector2(52.96875, 17)
-
-[node name="Exploding_Knife" type="CharacterBody2D"]
-collision_layer = 64
+[node name="Projectile2D" type="CharacterBody2D"]
+collision_layer = 0
 collision_mask = 0
-script = ExtResource("1_rpatp")
-explosionScene = ExtResource("2_6tcjl")
+script = ExtResource("1_sjws6")
+explosionScene = ExtResource("2_rpatp")
 metadata/_custom_type_script = "uid://ccg8h4gqh285y"
 
-[node name="ExplodingKnife" type="Sprite2D" parent="."]
-position = Vector2(56.000004, 0)
-scale = Vector2(0.2258064, 0.22580646)
-texture = ExtResource("3_dqxag")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(54, 0.99999994)
+scale = Vector2(0.1942906, 0.19429058)
+texture = ExtResource("2_d3me5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(55.53125, 0)
-shape = SubResource("RectangleShape2D_ui1as")
+position = Vector2(54.265625, 1)
+shape = SubResource("RectangleShape2D_6tv14")
+disabled = true
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(55.515625, 0)
-shape = SubResource("RectangleShape2D_xfip4")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(54.265625, 1)
+shape = SubResource("RectangleShape2D_6tv14")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

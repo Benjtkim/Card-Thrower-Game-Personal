@@ -1,39 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://7pj5rfxsmlhs"]
+[gd_scene load_steps=4 format=3 uid="uid://7pj5rfxsmlhs"]
 
 [ext_resource type="Script" uid="uid://btt5mte0bfd2k" path="res://Scripts/Apple_Boss.gd" id="1_0yic1"]
 [ext_resource type="Texture2D" uid="uid://dnne3v3kjcsld" path="res://Assets/Apple_Boss.png" id="1_rxgdu"]
-[ext_resource type="Script" uid="uid://ryu2y3o3svl4" path="res://Scripts/Health_Bar.gd" id="3_4pg3k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0yic1"]
-size = Vector2(329, 409.25)
+size = Vector2(329, 407)
 
 [node name="Apple_Boss" type="CharacterBody2D"]
 collision_layer = 32768
-collision_mask = 3
 script = ExtResource("1_0yic1")
 
-[node name="AppleBoss" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_rxgdu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4.5, -0.375)
+position = Vector2(4.5, -1.5)
 shape = SubResource("RectangleShape2D_0yic1")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 62
+collision_layer = 32768
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(4.5, -0.375)
+position = Vector2(4.5, -1.5)
 shape = SubResource("RectangleShape2D_0yic1")
-
-[node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -101.0
-offset_top = -237.0
-offset_right = 102.0
-offset_bottom = -210.0
-step = 1.0
-show_percentage = false
-script = ExtResource("3_4pg3k")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

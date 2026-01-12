@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b2u7hf6q7wbdh" path="res://Scripts/Knife_Card.gd" id="1_n67dq"]
 [ext_resource type="Texture2D" uid="uid://bcx5fa4ipa6gn" path="res://Assets/Knife_Card.jpg" id="2_e5u4n"]
-[ext_resource type="PackedScene" uid="uid://drhnx1xbnj0oi" path="res://Scenes/Exploding_Knife.tscn" id="2_rdmqb"]
+[ext_resource type="PackedScene" uid="uid://drhnx1xbnj0oi" path="res://Scenes/Exploding_Knife_Card.tscn" id="2_rdmqb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdmqb"]
 size = Vector2(24, 17)
@@ -14,7 +14,7 @@ size = Vector2(24, 17)
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("1_n67dq")
-explodingKnife = ExtResource("2_rdmqb")
+explodingKnifeCard = ExtResource("2_rdmqb")
 metadata/_custom_type_script = "uid://ccg8h4gqh285y"
 
 [node name="KnifeCard" type="Sprite2D" parent="."]

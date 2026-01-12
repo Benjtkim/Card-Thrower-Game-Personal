@@ -4,7 +4,6 @@ extends CharacterBody2D
 @onready var FireTimer = $FireCooldown
 
 # Movement support.
-const gravity = 200.0
 const walkSpeed = 200
 const jumpVelocity = -350
 
@@ -46,7 +45,7 @@ func _physics_process(delta):
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y = jumpVelocity / 4.0
 	
-	velocity.y += delta * gravity
+	velocity += delta * get_gravity()
 	
 	# Related to shooting:
 	

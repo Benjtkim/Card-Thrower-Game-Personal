@@ -41,3 +41,7 @@ Pause={
 "deadzone": 0.2,
 "events": []
 }
+
+[physics]
+
+2d/default_gravity=200.0

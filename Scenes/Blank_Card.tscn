@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dxyik34ytqsog"]
+[gd_scene load_steps=8 format=3 uid="uid://dxyik34ytqsog"]
 
 [ext_resource type="Script" uid="uid://d0cj4vplpo8pn" path="res://Scripts/Blank_Card.gd" id="1_fp8gf"]
 [ext_resource type="Texture2D" uid="uid://d13lk6hplv8g6" path="res://Assets/Blank_Card.png" id="1_l3a5d"]
 [ext_resource type="PackedScene" uid="uid://dggivamr7ormc" path="res://Scenes/Knife.tscn" id="2_sx2tn"]
 [ext_resource type="PackedScene" uid="uid://c8ew57faeyrsd" path="res://Scenes/Explosion.tscn" id="3_mnwsj"]
+[ext_resource type="PackedScene" uid="uid://cdv7ji2p05b77" path="res://Scenes/Exploding_Knife.tscn" id="4_xjh5u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fp8gf"]
 size = Vector2(20, 16)
@@ -17,6 +18,7 @@ collision_mask = 0
 script = ExtResource("1_fp8gf")
 knife = ExtResource("2_sx2tn")
 explosionScene = ExtResource("3_mnwsj")
+explodingKnifeScene = ExtResource("4_xjh5u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(39.000004, 0)
@@ -31,7 +33,7 @@ shape = SubResource("RectangleShape2D_fp8gf")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 25
+collision_mask = 32825
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(39, 0)

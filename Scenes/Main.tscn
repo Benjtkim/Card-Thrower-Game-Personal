@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkepthsqtuyaj"]
+[gd_scene load_steps=6 format=3 uid="uid://bkepthsqtuyaj"]
 
 [ext_resource type="Texture2D" uid="uid://dga3li1pnx2ck" path="res://Assets/Floor.png" id="1_idj7w"]
 [ext_resource type="PackedScene" uid="uid://cko4y6nseqqck" path="res://Scenes/Player_Deck_UI.tscn" id="1_kln2b"]
 [ext_resource type="PackedScene" uid="uid://b86niv7knsssb" path="res://Scenes/Player.tscn" id="2_kln2b"]
+[ext_resource type="PackedScene" uid="uid://7pj5rfxsmlhs" path="res://Scenes/Apple_Boss.tscn" id="3_rgh2o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cm0pq"]
 size = Vector2(1151.9375, 83)
@@ -28,6 +29,9 @@ texture = ExtResource("1_idj7w")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2(238.03125, -580.5)
 shape = SubResource("RectangleShape2D_cm0pq")
+
+[node name="CharacterBody2D" parent="Floor" instance=ExtResource("3_rgh2o")]
+position = Vector2(464, -842)
 
 [node name="Player" parent="." instance=ExtResource("2_kln2b")]
 position = Vector2(145, 454)
