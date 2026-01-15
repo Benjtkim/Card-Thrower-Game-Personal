@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 @onready var sprite = $Sprite2D
-@onready var FireTimer = $FireCooldown
 
 # Movement support.
 const walkSpeed = 200
@@ -13,11 +12,34 @@ var canShoot = true
 var shotCount: int = 0
 @export var deck: Deck
 var deckCounter: int = 0
+@onready var FireTimer = $FireCooldown
+
+# Health/damage support.
+var health := 20
+var isInvincible := false
+var isColliding := false
+var tookDamage := false
+@onready var IFramesTimer = $IFramesTimer
+var constantCollisionDamge = 5
 
 func _ready() -> void:
 	deck.get_card(deckCounter).isBordered = true
+	FireTimer.wait_time = 0.2
+	IFramesTimer.wait_time = 0.5
 
 func _physics_process(delta):
+	# Related to damage:
+	if health <= 0:
+		queue_free()
+	
+	if tookDamage:
+		IFramesTimer.start()
+		tookDamage = false
+		isInvincible = true
+	
+	if isColliding and !isInvincible:
+		health -= constantCollisionDamge
+		tookDamage = true
 	
 	# Related to left/right movement:
 	if Input.is_action_pressed("left"):
@@ -60,7 +82,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("fire") and canShoot:
 		_handle_fire()
-
+		
 func _handle_fire():
 	canShoot = false
 	FireTimer.start()
@@ -83,3 +105,6 @@ func _handle_fire():
 
 func _on_fire_cooldown_finish() -> void:
 	canShoot = true 
+
+func _on_i_frames_timer_timeout() -> void:
+	isInvincible = false 

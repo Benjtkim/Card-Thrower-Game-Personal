@@ -18,14 +18,12 @@ position = Vector2(575, 327)
 
 [node name="Player_Deck_UI" parent="CanvasLayer" instance=ExtResource("1_kln2b")]
 
-[node name="HealthLabel" type="Label" parent="CanvasLayer" node_paths=PackedStringArray("Player")]
+[node name="HealthLabel" type="Label" parent="CanvasLayer"]
 offset_left = 5.0
-offset_top = 66.0
-offset_right = 135.0
-offset_bottom = 89.0
-text = "Health: 10.0/10.0"
+offset_top = 68.0
+offset_right = 45.0
+offset_bottom = 91.0
 script = ExtResource("2_pbw6q")
-Player = NodePath("../../Player")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(338, 1199)

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://btt5mte0bfd2k" path="res://Scripts/Apple_Boss.gd" id="1_0yic1"]
 [ext_resource type="Texture2D" uid="uid://dnne3v3kjcsld" path="res://Assets/Apple_Boss.png" id="1_rxgdu"]
-[ext_resource type="Script" uid="uid://ryu2y3o3svl4" path="res://Scripts/Enemy_Health_Bar.gd" id="3_4pg3k"]
-[ext_resource type="Script" uid="uid://drh61sa0snq2i" path="res://Scripts/Enemy_Health_Label.gd" id="3_s4e1u"]
+[ext_resource type="Script" uid="uid://ryu2y3o3svl4" path="res://Scripts/Health_Bar.gd" id="3_4pg3k"]
+[ext_resource type="Script" uid="uid://drh61sa0snq2i" path="res://Scripts/Health_Label.gd" id="3_s4e1u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0yic1"]
 size = Vector2(329, 409.25)
@@ -28,11 +28,11 @@ position = Vector2(4.5, -0.375)
 shape = SubResource("RectangleShape2D_0yic1")
 
 [node name="HealthLabel" type="Label" parent="."]
-offset_left = -67.0
+offset_left = -19.0
 offset_top = -262.0
-offset_right = 66.0
+offset_right = 21.0
 offset_bottom = -239.0
-text = "Health: 10.0/10.0"
+text = "Hello"
 script = ExtResource("3_s4e1u")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
@@ -47,5 +47,4 @@ script = ExtResource("3_4pg3k")
 [node name="Timer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

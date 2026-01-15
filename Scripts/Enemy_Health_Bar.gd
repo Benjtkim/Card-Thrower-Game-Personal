@@ -1,13 +1,13 @@
 extends ProgressBar
 
-@onready var Apple_Boss: Enemy2D = get_parent()
+@onready var Owner: Node2D = get_parent()
 var maxHealth
 var health
 
 func _ready() -> void: 
-	max_value = Apple_Boss.health
+	max_value = Owner.health
 
 func _physics_process(delta: float) -> void:
-	health = Apple_Boss.health
+	health = Owner.health
 	value = health
 	
