@@ -15,19 +15,23 @@ var deckCounter: int = 0
 @onready var FireTimer = $FireCooldown
 
 # Health/damage support.
-var health := 20
+var health := 100
 var isInvincible := false
 var isColliding := false
 var tookDamage := false
 @onready var IFramesTimer = $IFramesTimer
-var constantCollisionDamge = 5
+var constantCollisionDamage
+
+signal current_position(position)
 
 func _ready() -> void:
 	deck.get_card(deckCounter).isBordered = true
 	FireTimer.wait_time = 0.2
-	IFramesTimer.wait_time = 0.5
+	IFramesTimer.wait_time = 1
 
 func _physics_process(delta):
+	emit_signal("current_position", self.global_position)
+	
 	# Related to damage:
 	if health <= 0:
 		queue_free()
@@ -38,7 +42,7 @@ func _physics_process(delta):
 		isInvincible = true
 	
 	if isColliding and !isInvincible:
-		health -= constantCollisionDamge
+		health -= constantCollisionDamage
 		tookDamage = true
 	
 	# Related to left/right movement:

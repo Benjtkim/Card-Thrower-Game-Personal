@@ -7,8 +7,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6tv14"]
 size = Vector2(45.46875, 12)
 
-[node name="Projectile2D" type="CharacterBody2D"]
-collision_layer = 0
+[node name="ExplodingKnife" type="CharacterBody2D"]
+collision_layer = 128
 collision_mask = 0
 script = ExtResource("1_sjws6")
 explosionScene = ExtResource("2_rpatp")

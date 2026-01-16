@@ -40,8 +40,10 @@ texture = ExtResource("1_idj7w")
 position = Vector2(238.03125, -580.5)
 shape = SubResource("RectangleShape2D_cm0pq")
 
-[node name="CharacterBody2D" parent="Floor" instance=ExtResource("3_rgh2o")]
-position = Vector2(464, -842)
+[node name="Apple_Boss" parent="." instance=ExtResource("3_rgh2o")]
+position = Vector2(802, 357)
 
 [node name="Player" parent="." instance=ExtResource("2_kln2b")]
 position = Vector2(145, 454)
+
+[connection signal="current_position" from="Player" to="Apple_Boss" method="_on_player_current_position"]

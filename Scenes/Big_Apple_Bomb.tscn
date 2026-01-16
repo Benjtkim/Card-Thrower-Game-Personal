@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfs4pxurfwhaj"]
+
+[ext_resource type="Script" uid="uid://bbxn414gu82en" path="res://Scripts/Big_Apple_Bomb.gd" id="1_kkhe3"]
+[ext_resource type="Texture2D" uid="uid://c7535va0o0n5p" path="res://Assets/Big_Apple_Bomb.png" id="2_jwyan"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4xae"]
+size = Vector2(310.5589, 372.67084)
+
+[node name="BigAppleBomb" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_kkhe3")
+metadata/_custom_type_script = "uid://ccg8h4gqh285y"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.7683716e-07, -4.7683716e-07)
+scale = Vector2(0.270625, 0.270625)
+texture = ExtResource("2_jwyan")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7.6293945e-06, -0.99999976)
+scale = Vector2(0.16100003, 0.16100003)
+shape = SubResource("RectangleShape2D_b4xae")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2.9802322e-07, -0.9999924)
+scale = Vector2(0.16100003, 0.16100003)
+shape = SubResource("RectangleShape2D_b4xae")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -26,7 +26,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			body.health -= collisionDamage
 			body.tookDamage = true
 		body.isColliding = true
+		body.constantCollisionDamage = collisionDamage
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		body.isColliding = false
+		body.constantCollisionDamage = 0
